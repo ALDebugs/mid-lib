@@ -1,0 +1,38 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://repo.runelite.net'
+        content {
+            includeGroupByRegex("net\\.runelite.*")
+        }
+    }
+}
+
+dependencies {
+
+    testImplementation libs.junit.jupiter
+    testImplementation libs.mockito.core
+    testImplementation libs.rl
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    api libs.commons.math3
+
+    implementation libs.guava
+
+    compileOnly libs.rl
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
