@@ -1,8 +1,8 @@
-package al.mid;
+package com.aldebugs.mid;
 
 
-import al.mid.marker.MarkerBuilders;
-import al.mid.service.MarkerService;
+import com.aldebugs.mid.marker.MarkerBuilders;
+import com.aldebugs.mid.service.MarkerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

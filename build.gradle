@@ -1,16 +1,11 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        url = 'https://repo.runelite.net'
-        content {
-            includeGroupByRegex("net\\.runelite.*")
-        }
-    }
-}
+group = "com.aldebugs"
+version = "1.0.0-SNAPSHOT"
+
 
 dependencies {
 
@@ -20,8 +15,7 @@ dependencies {
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    api libs.commons.math3
-
+    implementation libs.commons.math3
     implementation libs.guava
 
     compileOnly libs.rl
@@ -31,8 +25,30 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(11)
     }
+    withSourcesJar()
+    withJavadocJar()
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        create("maven", MavenPublication) {
+            from components.java
+            artifactId = 'mid-lib'
+
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/ALDebugs/mid-lib")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }

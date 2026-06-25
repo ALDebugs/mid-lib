@@ -1,7 +1,7 @@
-package al.mid.service;
+package com.aldebugs.mid.service;
 
-import al.mid.attack.AttackBuilder;
-import al.mid.attack.AttackSequencer;
+import com.aldebugs.mid.attack.AttackBuilder;
+import com.aldebugs.mid.attack.AttackSequencer;
 import net.runelite.api.Prayer;
 
 public interface AttackService {

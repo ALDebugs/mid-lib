@@ -1,4 +1,4 @@
-package al.mid;
+package com.aldebugs.mid;
 
 
 import org.junit.jupiter.api.AfterEach;

@@ -1,4 +1,4 @@
-package al.mid.attack;
+package com.aldebugs.mid.attack;
 
 import net.runelite.api.Prayer;
 
