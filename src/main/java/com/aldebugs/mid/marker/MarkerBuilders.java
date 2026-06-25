@@ -1,4 +1,4 @@
-package al.mid.marker;
+package com.aldebugs.mid.marker;
 
 import java.awt.*;
 

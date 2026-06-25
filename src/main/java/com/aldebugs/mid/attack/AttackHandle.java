@@ -1,4 +1,4 @@
-package al.mid.attack;
+package com.aldebugs.mid.attack;
 
 public interface AttackHandle {
     void cancel();

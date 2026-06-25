@@ -1,6 +1,6 @@
-package al.mid.service;
+package com.aldebugs.mid.service;
 
-import al.mid.marker.MarkerBuilders;
+import com.aldebugs.mid.marker.MarkerBuilders;
 import net.runelite.api.Actor;
 import net.runelite.api.GameObject;
 import net.runelite.api.GraphicsObject;

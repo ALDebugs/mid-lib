@@ -1,4 +1,4 @@
-package al.mid;
+package com.aldebugs.mid;
 
 public final class Mid {
     private static volatile MidApi api;

@@ -1,4 +1,4 @@
-package al.mid.marker;
+package com.aldebugs.mid.marker;
 
 public interface MarkerHandle {
     void remove();

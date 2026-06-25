@@ -1,4 +1,4 @@
-package al.mid.service;
+package com.aldebugs.mid.service;
 
 import java.awt.*;
 
