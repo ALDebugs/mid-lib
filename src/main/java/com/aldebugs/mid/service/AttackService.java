@@ -1,13 +1,13 @@
 package com.aldebugs.mid.service;
 
-import com.aldebugs.mid.attack.AttackBuilder;
-import com.aldebugs.mid.attack.AttackSequencer;
-import net.runelite.api.Prayer;
+import com.aldebugs.mid.attack.AttackStepBuilders;
 
 public interface AttackService {
-    AttackBuilder attack(Prayer prayer);
-    void stasis(Prayer prayer);
-    void clearStasis();
-    AttackSequencer seq();
+    // AttackStepBuilders.TypeStep create();
+
+    AttackStepBuilders.PrayerStep normal();
+    AttackStepBuilders.PrayerStep sticky();
+    AttackStepBuilders.SequencePrayerStep sequence();
+
     void reset();
 }

@@ -1,7 +1,7 @@
 package com.aldebugs.mid;
 
 
-import com.aldebugs.mid.marker.MarkerBuilders;
+import com.aldebugs.mid.marker.MarkerStepBuilders;
 import com.aldebugs.mid.service.MarkerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,15 +28,15 @@ public class MidApiTest {
 
     @Test
     void testForPoint_ReturnsNonNull() {
-        MarkerBuilders.ForWorldPoint forWp = mock(MarkerBuilders.ForWorldPoint.class);
-        when(markerService.forWorldPoint(any())).thenReturn(forWp);
-        assertNotNull(Mid.api().markers().forWorldPoint(null));
+        MarkerStepBuilders.GroundStep groundStep = mock(MarkerStepBuilders.GroundStep.class);
+        when(markerService.ground(any())).thenReturn(groundStep);
+        assertNotNull(Mid.api().markers().ground(null));
     }
 
     @Test
     void testForActor_ReturnsNonNull() {
-        MarkerBuilders.ForActor forActor = mock(MarkerBuilders.ForActor.class);
-        when(markerService.forActor(any())).thenReturn(forActor);
-        assertNotNull(Mid.api().markers().forActor(null));
+        MarkerStepBuilders.ActorStep actorStep = mock(MarkerStepBuilders.ActorStep.class);
+        when(markerService.actor(any())).thenReturn(actorStep);
+        assertNotNull(Mid.api().markers().actor(null));
     }
 }

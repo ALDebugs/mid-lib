@@ -2,12 +2,12 @@ package com.aldebugs.mid.marker;
 
 public enum Threat {
     SAFE,
-    PREPARE,
+    //PREPARE,
 
     DANGER,
     WARNING,
 
-    DELAY,
+    //DELAY,
 
-    NONE
+    //NONE
 }

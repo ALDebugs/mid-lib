@@ -1,24 +1,18 @@
 package com.aldebugs.mid.marker;
 
-import net.runelite.api.Actor;
-import net.runelite.api.GameObject;
-import net.runelite.api.GraphicsObject;
-import net.runelite.api.Projectile;
-import net.runelite.api.coords.WorldPoint;
-
 import java.awt.*;
 
 public class MarkerStepBuilders {
 
     private MarkerStepBuilders() {}
 
-    public interface EntityStep {
+    /*public interface EntityStep {
         GroundStep point(WorldPoint wp);
         ActorStep actor(Actor actor);
         GameObjStep gameObj(GameObject gameObject);
         GfxObjStep gfxObj(GraphicsObject graphicsObject);
         ProjectileStep projectile(Projectile projectile);
-    }
+    }*/
 
     public interface GroundStep {
         ColourStep tile();
@@ -60,7 +54,10 @@ public class MarkerStepBuilders {
         ColourStep radius(int tiles);
     }
     public interface ColourStep {
-        OptionStep threat(Threat threat);
+        //OptionStep threat(Threat threat);
+        OptionStep dangerous();
+        OptionStep warning();
+        OptionStep safe();
         CustomBorderColourStep colourFill(Color colour, int alpha);
     }
     public interface CustomBorderColourStep {
