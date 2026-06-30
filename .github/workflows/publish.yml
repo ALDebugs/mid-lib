@@ -1,6 +1,7 @@
 name: Publish Package
 
 on:
+  push:
   release:
     types: [created] # publishes on creating a release
   workflow_dispatch: # allows manual trigger

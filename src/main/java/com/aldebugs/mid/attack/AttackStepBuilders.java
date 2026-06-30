@@ -17,15 +17,15 @@ public class AttackStepBuilders {
         TickStep melee();
     }
 
+    public interface TickStep {
+        PriorityStep ticksLeft(int ticksLeft);
+    }
+
     public interface SequencePrayerStep {
         SequenceTickStep magic();
         SequenceTickStep missiles();
         SequenceTickStep melee();
         PriorityStep lockSequence();
-    }
-
-    public interface TickStep {
-        PriorityStep ticksLeft(int ticksLeft);
     }
 
     public interface SequenceTickStep {
@@ -37,6 +37,7 @@ public class AttackStepBuilders {
     }
 
     public interface OptionStep<B extends OptionStep<B>> {
+        B tag(String tag);
         AttackHandle add();
     }
 
