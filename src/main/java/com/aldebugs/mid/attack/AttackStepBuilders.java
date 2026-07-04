@@ -1,5 +1,7 @@
 package com.aldebugs.mid.attack;
 
+import net.runelite.api.Prayer;
+
 public class AttackStepBuilders {
 
 
@@ -15,6 +17,7 @@ public class AttackStepBuilders {
         TickStep magic();
         TickStep missiles();
         TickStep melee();
+        TickStep resolve(Prayer prayer);
     }
 
     public interface TickStep {
@@ -25,6 +28,7 @@ public class AttackStepBuilders {
         SequenceTickStep magic();
         SequenceTickStep missiles();
         SequenceTickStep melee();
+        SequenceTickStep resolve(Prayer prayer);
         PriorityStep lockSequence();
     }
 
