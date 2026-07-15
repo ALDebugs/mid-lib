@@ -1,11 +1,7 @@
 package com.aldebugs.mid.attack;
 
-public interface AttackHandle extends AutoCloseable {
+public interface AttackHandle {
     void cancel();
     boolean isActive();
 
-    @Override
-    default void close() {
-        cancel();
-    }
 }
