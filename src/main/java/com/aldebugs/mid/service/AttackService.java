@@ -4,7 +4,7 @@ import com.aldebugs.mid.attack.AttackStepBuilders;
 
 public interface AttackService {
     AttackStepBuilders.PrayerStep normal();
-    AttackStepBuilders.PrayerStep sticky();
+    AttackStepBuilders.StickyPrayerStep sticky();
     AttackStepBuilders.SequencePrayerStep sequence();
 
     void reset();

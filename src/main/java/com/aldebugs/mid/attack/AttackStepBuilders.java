@@ -13,6 +13,13 @@ public class AttackStepBuilders {
         TickStep resolve(Prayer prayer);
     }
 
+    public interface StickyPrayerStep {
+        PriorityStep magic();
+        PriorityStep missiles();
+        PriorityStep melee();
+        PriorityStep resolve(Prayer prayer);
+    }
+
     public interface TickStep {
         PriorityStep ticksLeft(int ticksLeft);
     }
