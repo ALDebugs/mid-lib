@@ -8,15 +8,11 @@ import net.runelite.api.Projectile;
 import net.runelite.api.coords.WorldPoint;
 
 public interface MarkerService {
-
-    //MarkerStepBuilders.EntityStep create();
-
     MarkerStepBuilders.ActorStep actor(Actor actor);
     MarkerStepBuilders.GroundStep ground(WorldPoint wp);
     MarkerStepBuilders.GameObjStep gameObj(GameObject gameObj);
     MarkerStepBuilders.GfxObjStep gfxObj(GraphicsObject gfxObj);
     MarkerStepBuilders.ProjectileStep projectile(Projectile projectile);
 
-    void onGameTick();
     void clearAll();
 }

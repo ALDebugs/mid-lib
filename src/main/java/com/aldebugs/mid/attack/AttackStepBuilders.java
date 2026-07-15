@@ -4,14 +4,7 @@ import net.runelite.api.Prayer;
 
 public class AttackStepBuilders {
 
-
     private AttackStepBuilders() {}
-
-    /*public interface TypeStep {
-        PrayerStep single();
-        PrayerStep sticky();
-        SequencePrayerStep sequence();
-    }*/
 
     public interface PrayerStep {
         TickStep magic();
@@ -37,15 +30,15 @@ public class AttackStepBuilders {
     }
 
     public interface PriorityStep {
-        OptionStep priority(int priority);
+        Options priority(int priority);
     }
 
-    public interface OptionStep<B extends OptionStep<B>> {
-        B tag(String tag);
+    public interface Options {
+        Options tag(String tag);
         AttackHandle add();
     }
 
-    public interface Options extends OptionStep<Options> {}
+
 
 }
 

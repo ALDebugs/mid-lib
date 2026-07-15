@@ -1,52 +1,30 @@
 package com.aldebugs.mid.marker;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class MarkerStepBuilders {
 
     private MarkerStepBuilders() {}
 
-    /*public interface EntityStep {
-        GroundStep point(WorldPoint wp);
-        ActorStep actor(Actor actor);
-        GameObjStep gameObj(GameObject gameObject);
-        GfxObjStep gfxObj(GraphicsObject graphicsObject);
-        ProjectileStep projectile(Projectile projectile);
-    }*/
+    public interface ShapeStep {
+        ColourStep tile();
+        SizeStep area();
+        RadiusStep radius();
+    }
+    public interface OutlineStep extends ShapeStep {
+        ColourStep outline();
+    }
+    public interface FullShapeStep extends OutlineStep {
+        ColourStep hull();
+        ColourStep clickbox();
+    }
 
-    public interface GroundStep {
-        ColourStep tile();
-        SizeStep area();
-        RadiusStep radius();
-    }
-    public interface ActorStep {
-        ColourStep tile();
-        ColourStep hull();
-        ColourStep clickbox();
-        ColourStep outline();
-        SizeStep area();
-        RadiusStep radius();
-    }
-    public interface GameObjStep {
-        ColourStep tile();
-        ColourStep hull();
-        ColourStep clickbox();
-        ColourStep outline();
-        SizeStep   area();
-        RadiusStep radius();
-    }
-    public interface GfxObjStep {
-        ColourStep tile();
-        ColourStep outline();
-        SizeStep   area();
-        RadiusStep radius();
-    }
-    public interface ProjectileStep {
-        ColourStep tile();
-        SizeStep   area();
-        RadiusStep radius();
-        ColourStep outline();
-    }
+    public interface GroundStep extends ShapeStep {}
+    public interface ActorStep extends FullShapeStep {}
+    public interface GameObjStep extends FullShapeStep {}
+    public interface GfxObjStep extends OutlineStep {}
+    public interface ProjectileStep extends OutlineStep {}
+
     public interface SizeStep {
         ColourStep size(int width, int height);
     }
@@ -54,23 +32,25 @@ public class MarkerStepBuilders {
         ColourStep radius(int tiles);
     }
     public interface ColourStep {
-        //OptionStep threat(Threat threat);
-        OptionStep dangerous();
-        OptionStep warning();
-        OptionStep safe();
-        CustomBorderColourStep colourFill(Color colour, int alpha);
+
+        ThreatFillStep dangerous();
+        ThreatFillStep warning();
+        ThreatFillStep safe();
+        CustomBorderStep colourBorder(Color colour, int borderWidth);
+
     }
-    public interface CustomBorderColourStep {
-        OptionStep colourBorder(Color colour, int borderWidth);
+    public interface ThreatFillStep extends Options {
+        Options filled();
     }
 
-    public interface OptionStep<B extends OptionStep<B>> {
-        B label(String text);
-        /** Expires after a set amount of game ticks **/
+    public interface CustomBorderStep extends Options {
+        Options colourFill(Color colour, int alpha);
+    }
+
+    public interface Options {
+        Options label(String text);
         MarkerHandle add(int ticks);
         /** Expires when entity/tile is null, or customised expiry **/
-        MarkerHandle addPermanent(); // convenience for Integer.MAX_VALUE
+        MarkerHandle addPermanent();
     }
-
-    public interface Options extends OptionStep<Options> {}
 }
